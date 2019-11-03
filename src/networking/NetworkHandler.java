@@ -31,7 +31,7 @@ public class NetworkHandler {
 
     public String tryGetMoveFromClient(String serverMessage, Solver solver){
         try {
-            return this.getMoveFromClient(serverMessage, solver);
+            return getMoveFromClient(serverMessage, solver);
         }
         catch (IOException e){
             this.printDisconnectionMessage();
@@ -42,8 +42,8 @@ public class NetworkHandler {
 
     public String initializeGame(int size)   {
         try {
-            this.getDos().writeUTF(String.valueOf(size));
-            return this.getDis().readUTF();
+            getDos().writeUTF(String.valueOf(size));
+            return getDis().readUTF();
         } catch (IOException e) {
             this.printDisconnectionMessage();
         }
